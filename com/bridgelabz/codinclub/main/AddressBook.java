@@ -9,14 +9,15 @@ import java.io.IOException;
 
 
 public class AddressBook{
+
+	public static List<HashMap> Entries=new ArrayList<HashMap>();
 	public static List<HashMap> newEntry(){
 		Person p=new Person();
 		p.getDetails();
 		HashMap<String,String> entry=p.storeDetails();
 
-		List<HashMap> Entries=new ArrayList<HashMap>();
 		Entries.add(entry);
-		
+
 		FileWriter f=null;
 		try{
 			f=new FileWriter("addressbook.csv",true);
@@ -26,9 +27,10 @@ public class AddressBook{
 			}
 			f.append("\n");
 			for(Map.Entry<String,String> m:entry.entrySet()){    
-      	 	f.append(m.getValue());
+		      	 	f.append(m.getValue());
 				f.append(',');
 			}
+			f.append("\n");
 			System.out.println("Saved entry to the address book");
 
 		}catch (Exception e){
@@ -47,11 +49,14 @@ public class AddressBook{
 	return(Entries);
 
 	}
-		
+
+	
+
 
 	public static void main(String args[]){
 		Scanner in=new Scanner(System.in);
-		String opt;
+		String opt="0";
+		while(opt!="4"){
 		System.out.println("Choose the operation you want to perform\n"+
 								"1. Create new Entry\n"+
 								"2. Edit existing Entry\n"+
@@ -60,11 +65,13 @@ public class AddressBook{
 		opt=in.nextLine();
 
 			switch(opt){
-				case "1": 
+				case "1":
 					newEntry();
 				break;
 				case "4":
 					System.exit(0);
+				break;
 			}
+		}
 	}
 }
