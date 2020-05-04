@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class AddressBook{
 
-	public static List<HashMap> Entries=new ArrayList<HashMap>();
-	public static List<HashMap> newEntry(){
+	public static List<HashMap<String,String>> Entries=new ArrayList<HashMap<String,String>>();
+	public static List<HashMap<String,String>> newEntry(){
 		Person p=new Person();
 		p.getDetails();
 		HashMap<String,String> entry=p.storeDetails();
@@ -50,7 +50,30 @@ public class AddressBook{
 
 	}
 
-	
+	public static List<HashMap<String,String>> editEntry(){
+		List<HashMap<String,String>> ens=Entries;
+		
+		System.out.println("Enter the Name of the person to be changed");
+		Scanner in=new Scanner(System.in);
+		String initName=in.nextLine();
+
+		System.out.println("Enter the updated value");
+		String finalName=in.nextLine();
+		Iterator itr=ens.iterator();
+		while(itr.hasNext()){
+			HashMap<String,String> hm=(HashMap) itr.next();
+			Iterator itr2=hm.entrySet().iterator();
+			while(itr2.hasNext()){
+
+				Map.Entry mapElement=(Map.Entry)itr2.next();
+				if(mapElement.getKey()=="FirstName" && mapElement.getValue()==initName){
+					mapElement.replace("FirstName",finalName);
+					System.out.println("Replaced");
+				}
+			}
+		}
+		return(ens);
+	}
 
 
 	public static void main(String args[]){
@@ -67,6 +90,9 @@ public class AddressBook{
 			switch(opt){
 				case "1":
 					newEntry();
+				break;
+				case "2":
+					editEntry();
 				break;
 				case "4":
 					System.exit(0);
