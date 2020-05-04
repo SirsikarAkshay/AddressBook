@@ -52,7 +52,7 @@ public class AddressBook{
 
 	public static List<HashMap<String,String>> editEntry(){
 		List<HashMap<String,String>> ens=Entries;
-		
+
 		System.out.println("Enter the Name of the person to be changed");
 		Scanner in=new Scanner(System.in);
 		String initName=in.nextLine();
@@ -67,8 +67,7 @@ public class AddressBook{
 
 				Map.Entry mapElement=(Map.Entry)itr2.next();
 				if(mapElement.getKey()=="FirstName" && mapElement.getValue()==initName){
-					mapElement.replace("FirstName",finalName);
-					System.out.println("Replaced");
+					System.out.println(mapElement.getValue());
 				}
 			}
 		}
