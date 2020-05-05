@@ -12,6 +12,10 @@ import java.io.FileNotFoundException;
 
 public class AddressBook{
 
+		/**
+		* Get the details of the new user
+		*/
+
 		public static HashMap<String,String> newEntry(){
 		Person p=new Person();
 		p.getDetails();
@@ -29,29 +33,9 @@ public class AddressBook{
 		}
 	}
 
-	/*public static List<String[]> editEntry() throws IOException,FileNotFoundException{
-		String file="addressbook.csv";
-		List<String[]> content = new ArrayList<>();
-	
-		System.out.println("Enter the Name of the person to be changed");
-		Scanner in=new Scanner(System.in);
-		String initName=in.nextLine();
-
-		System.out.println("Enter the updated value");
-		String finalName=in.nextLine();
-
-
-		try(BufferedReader br=new BufferedReader(new FileReader(file))) {
-			String line="";
-			while ((line=br.readLine()) != null) {
-				content.add(line.split(","));
-			}
-		} catch (FileNotFoundException e) {
-		}
-		System.out.println(content);
-		return content;
-	}*/
-
+	/** 
+	* main function performing creating,editing and deleting of records
+	*/
 
 	public static void main(String args[]){
 		Scanner in=new Scanner(System.in);
@@ -64,11 +48,20 @@ public class AddressBook{
 								"4. Close the program\n");
 		opt=in.nextLine();
 			switch(opt){
+				//create a new entry
 				case "1":
 					newEntry();
 				break;
+				//Edit the given entry else create new
 				case "2":
+					Scanner sup=new Scanner(System.in);
+                                        System.out.println("Enter the id of the record you want to update");
+                                        String upd=sup.nextLine();
+                                        EditRecord edit=new EditRecord();
+                                        edit.updateRecord("addressbook.csv",upd,6,",");
+                                        System.out.println("Record with ID "+upd+" is updated");
 				break;
+				//Delete a given record
 				case "3":
 					Scanner s=new Scanner(System.in);
 					System.out.println("Enter the id of the record you want to delete");
@@ -76,6 +69,8 @@ public class AddressBook{
 					DeleteRecord del=new DeleteRecord();
 					del.removeRecord("addressbook.csv",rem,6,",");
 					System.out.println("Record with ID "+rem+" is deleted");
+				break;
+				//exit the program
 				case "4":
 					System.exit(0);
 				break;

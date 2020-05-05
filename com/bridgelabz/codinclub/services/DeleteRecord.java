@@ -2,6 +2,11 @@
 
 import java.io.*;
 
+/**
+* Delete the given record
+* @ author Akshay
+*/
+
 public class DeleteRecord{
 
 	public static void removeRecord(String filepath,String removeTerm,int posTerm,String delim) {

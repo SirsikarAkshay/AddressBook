@@ -2,6 +2,10 @@ import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+* Write to a file from the Hashmap stored
+*@author Akshay
+*/
 
 public class fileWriter{
 	
