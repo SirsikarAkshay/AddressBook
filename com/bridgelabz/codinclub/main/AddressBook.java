@@ -59,8 +59,7 @@ public class AddressBook{
 		while(opt!="4"){
 		System.out.println("Choose the operation you want to perform\n"+
 								"1. Create new Entry\n"+
-								"2. Write to file\n"+
-								"3. Edit existing Entry\n"+
+								"2. Edit existing Entry\n"+
 								"3. Delete a selected entry\n"+
 								"4. Close the program\n");
 		opt=in.nextLine();
@@ -70,6 +69,13 @@ public class AddressBook{
 				break;
 				case "2":
 				break;
+				case "3":
+					Scanner s=new Scanner(System.in);
+					System.out.println("Enter the id of the record you want to delete");
+					String rem=s.nextLine();
+					DeleteRecord del=new DeleteRecord();
+					del.removeRecord("addressbook.csv",rem,6,",");
+					System.out.println("Record with ID "+rem+" is deleted");
 				case "4":
 					System.exit(0);
 				break;

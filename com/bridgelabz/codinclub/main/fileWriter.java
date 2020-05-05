@@ -32,7 +32,7 @@ public class fileWriter{
          	f=new FileWriter("addressbook.csv",true);
          	for(Map.Entry<String,String> m:entry.entrySet()){
                 	  f.append(m.getValue());
-            	f.append(',');
+            	f.append(",");
          	}
          	f.append("\n");
          	System.out.println("Saved entry to the address book");
