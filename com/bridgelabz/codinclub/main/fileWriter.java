@@ -9,7 +9,7 @@ public class fileWriter{
 	        FileWriter f=null;
 		try{
 			f=new FileWriter("addressbook.csv",true);
-                	f.append("Zip,Address,FirstName,State,Phone,ID,LastName,City");
+                	f.append("Zip,Address,FirstName,State,Phone,ID,LastName,City,");
                         f.append("\n");
 		}
 		catch (Exception e){
