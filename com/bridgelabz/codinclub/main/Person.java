@@ -6,7 +6,8 @@ import java.util.*;
 */
 
 public class Person{
-
+	
+	public static String id;
 	public static String firstName;
 	public static String lastName;
 	public static String address;
@@ -22,6 +23,9 @@ public class Person{
 
 	public static void getDetails(){
 		Scanner in=new Scanner(System.in);
+		
+		System.out.println("Enter the id of the person");
+                id=in.nextLine();
 		
 		System.out.println("Enter the first name of the person");
 		firstName=in.nextLine();
@@ -52,6 +56,7 @@ public class Person{
 	
 	public static HashMap<String,String> storeDetails(){
 		HashMap<String,String> person=new HashMap<String,String>();
+		person.put("ID",id);
 		person.put("FirstName",firstName);
 		person.put("LastName",lastName);
 		person.put("Address",address);
