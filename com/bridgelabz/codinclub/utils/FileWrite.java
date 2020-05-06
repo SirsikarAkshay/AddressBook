@@ -1,5 +1,8 @@
+
+//import goes here
+
 import java.util.*;
-import java.io.FileWriter;
+import java.io.*;
 import java.io.IOException;
 
 /**
@@ -7,7 +10,7 @@ import java.io.IOException;
 *@author Akshay
 */
 
-public class fileWriter{
+public class FileWrite{
 	
 	public void writeHeader(){
 	        FileWriter f=null;
@@ -56,4 +59,6 @@ public class fileWriter{
    }
 
 }
+		public static void main(String args[]){
+		}
 }
