@@ -1,3 +1,4 @@
+
 /*Create an address book class
 *@ author: Akshay
 */
@@ -24,7 +25,7 @@ public class AddressBook{
 		Scanner in=new Scanner(System.in);
 		String choice=in.nextLine();
 		if(choice.equals("y")){
-      			fileWriter f=new fileWriter();
+      			FileWrite f=new FileWrite();
 			f.writeFile(entry);
 			return(entry);
 		}
@@ -45,7 +46,8 @@ public class AddressBook{
 								"1. Create new Entry\n"+
 								"2. Edit existing Entry\n"+
 								"3. Delete a selected entry\n"+
-								"4. Close the program\n");
+								"4. Sort file by id\n"+
+								"5. Close the program\n");
 		opt=in.nextLine();
 			switch(opt){
 				//create a new entry
@@ -72,6 +74,10 @@ public class AddressBook{
 				break;
 				//exit the program
 				case "4":
+					SortFile sf=new SortFile();
+					
+				break;
+				case "5":
 					System.exit(0);
 				break;
 			}
